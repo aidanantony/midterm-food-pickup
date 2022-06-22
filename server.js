@@ -52,6 +52,11 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/users", (req, res) => { //render for customer side
+  res.render("customerInterface");
+});
+
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

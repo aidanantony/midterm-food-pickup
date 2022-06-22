@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!--Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fascinate&family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <%- include('partials/_header.ejs') %>
+  <main>
+    <div class = "vendor">
+      <div class = "restaurant_details">
+        <div class = "restaurant_name"><h1>River Café</h1></div>
+        <div class = "restaurant_contact_details">
+          <p>6100 Macleod Trail SW #100, Calgary, AB ABC XYZ</p>
+          <p>(403) 123-4567</p></div>
+      </div>
+      <div class = "restaurant_food_items">
+        <div class = food_item>
+          <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+          <div class = "food_item_details">
+            <p>A Big Giant Lobster</p>
+            <button class="add_food_item" type="submit">Add</button>
+          </div>
+        </div>
+        <div class = food_item>
+          <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+          <div class = "food_item_details">
+            <p>A Big Giant Lobster</p>
+            <button class="add_food_item" type="submit">Add</button>
+          </div>
+        </div>
+        <div class = food_item>
+          <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+          <div class = "food_item_details">
+            <p>A Giant Lobster</p>
+            <button class="add_food_item" type="submit">Add</button>
+          </div>
+        </div>
+        <div class = food_item>
+          <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+          <div class = "food_item_details">
+            <p>A Giant Lobster</p>
+            <button class="add_food_item" type="submit">Add</button>
+          </div>
+        </div>
+        <div class = food_item>
+          <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+          <div class = "food_item_details">
+            <p>A Giant Lobster</p>
+            <button class="add_food_item" type="submit">Add</button>
+          </div>
+        </div>
+        <div class = food_item>
+          <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+          <div class = "food_item_details">
+            <p>A Giant Lobster</p>
+            <button class="add_food_item" type="submit">Add</button>
+          </div>
+        </div>
+        <div class = food_item>
+          <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+          <div class = "food_item_details">
+            <p>A Giant Lobster</p>
+            <button class="add_food_item" type="submit">Add</button>
+          </div>
+        </div>
+        <div class = food_item>
+          <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+          <div class = "food_item_details">
+            <p>A Giant Lobster</p>
+            <button class="add_food_item" type="submit">Add</button>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class = "customer">
+      <div class = "checkout">
+        <h1>Number of items in {userIds} cart: (0)</h1>
+        <button class="checkout" type="submit">Checkout</button>
+      </div>
+      <div class = "customer_cart">
+        <div class = "order_item">
+          <div class = "order_details">
+            <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+            <p>A Big Giant Lobster</p>
+          </div>
+          <button class="remove_food_item" type="submit">Remove</button>
+        </div>
+        <div class = "order_item">
+          <div class = "order_details">
+            <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+            <p>A Big Giant Lobster</p>
+          </div>
+          <button class="remove_food_item" type="submit">Remove</button>
+        </div>
+        <div class = "order_item">
+          <div class = "order_details">
+            <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+            <p>A Big Giant Lobster</p>
+          </div>
+          <button class="remove_food_item" type="submit">Remove</button>
+        </div>
+        <div class = "order_item">
+          <div class = "order_details">
+            <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+            <p>A Big Giant Lobster</p>
+          </div>
+          <button class="remove_food_item" type="submit">Remove</button>
+        </div>
+        <div class = "order_item">
+          <div class = "order_details">
+            <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+            <p>A Big Giant Lobster</p>
+          </div>
+          <button class="remove_food_item" type="submit">Remove</button>
+        </div>
+        <div class = "order_item">
+          <div class = "order_details">
+            <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
+            <p>A Big Giant Lobster</p>
+          </div>
+          <button class="remove_food_item" type="submit">Remove</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+
+</html>
