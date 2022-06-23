@@ -3,10 +3,11 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #EEEDE7;
 
-  background: rgb(163, 208, 219);
   background: linear-gradient(
-    227deg,
+    deg,
     rgba(163, 208, 219, 1) 0%,
     rgba(163, 176, 219, 1) 20%,
     rgba(163, 173, 219, 1) 34%,
@@ -14,4 +15,174 @@ body {
     rgba(163, 208, 219, 1) 74%,
     rgba(163, 208, 219, 1) 100%
   );
+}
+
+p {
+  font-size: 1.1em;
+  padding: 0.1em;
+  margin: 0.1em;
+}
+
+div {
+margin: 1rem;
+}
+
+header {
+  background-color: #738580;
+  position: fixed;
+  top: 0;
+  border-style: solid;
+  border-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2em;
+}
+
+header h1 {
+font-family: 'Fascinate', cursive;
+font-size: 4em;
+margin: 0em;
+}
+
+button {
+  background-color: #738580;
+  color: #000000;
+  font-family: 'Bungee', cursive;
+  border: none;
+  width: fit-content;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+header button {
+  background-color: #ffffff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  padding-top: 6rem;
+}
+
+.vendor, .customer {
+  width : 100%;
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+
+}
+
+.restaurant_details {
+  background-color: #868B8E;
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.restaurant_details h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.restaurant_details h1 {
+  font-family: 'Fascinate', cursive;
+  padding: 0;
+  margin: 0;
+}
+
+.restaurant_contact_details {
+  text-align: right;
+}
+
+.restaurant_food_items {
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+}
+
+.food_item {
+  background-color: #ffffff;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  text-align: center;
+}
+
+.food_item img {
+  width: 12rem;
+  height: 10rem;
+  padding: 0.1rem;
+}
+
+.checkout {
+  background-color: #ffffff;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  height: fit-content;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout h1 {
+  font-size: 1.7rem;
+  padding: 0.5em;
+  margin: 0;
+}
+
+.checkout button {
+  background-color: #970C10;
+  color: #ffffff;
+}
+
+.customer_cart {
+
+}
+
+.order_item {
+  background-color: #ffffff;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order_item p {
+  font-size: 1.5rem;
+  padding: 0.5em;
+}
+
+.order_item img {
+  width: 4rem;
+  height: 4rem;
+  padding: 0.5em;
+}
+
+.order_details {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.user {
+
 }
