@@ -1,0 +1,48 @@
+<!-- Harwinder to code vendor side here -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="/styles/main.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
+  <!--Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fascinate&family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/vendorInterface.js"></script>
+</head>
+
+<body>
+  <%- include('partials/_header.ejs') %>
+  <main id="container">
+    <section class="log-in">
+      <form id="login-form" enctype="application/x-www-form-urlencoded">
+        <div class="email-id">
+          <label>Email Id</label>
+          <input type="email" name="email" placeholder="Email Id">
+        </div>
+        <div class="password">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Password">
+        </div>
+        <div class="login-button">
+          <button>Login</button>
+        </div>
+      </form>
+    </section>
+
+  </main>
+
+</body>
+
+</html>

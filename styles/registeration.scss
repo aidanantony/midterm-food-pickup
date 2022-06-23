@@ -1,0 +1,16 @@
+body {
+  background: #EEEDE7;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+
+.first-name, .last-name, .email-id, .password, .phone, .designation, .signup-button {
+  margin-top: 1.5em;
+}

@@ -1,0 +1,16 @@
+body {
+  background: #EEEDE7;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+
+.email-id, .password, .login-button {
+  margin-top: 1.5em;
+}

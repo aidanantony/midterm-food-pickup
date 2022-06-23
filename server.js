@@ -63,6 +63,14 @@ app.get("/vendor", (req, res) => { //render for customer side
   res.render("vendorInterface");
 });
 
+app.get("/register", (req, res) => { //render for customer side
+  res.render("registeration");
+});
+
+app.get("/login", (req, res) => { //render for customer side
+  res.render("login");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
