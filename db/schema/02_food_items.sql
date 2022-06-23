@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS food_items CASCADE;
 CREATE TABLE food_items (
   id SERIAL PRIMARY KEY NOT NULL,
-  name TEXT,
-  image_url VARCHAR(255),
-  price INTEGER
+  name TEXT NOT NULL,
+  image_url VARCHAR(255 NOT NULL),
+  price INTEGER NOT NULL
 );
