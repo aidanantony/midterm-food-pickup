@@ -11,7 +11,7 @@
   <!-- <link rel="stylesheet" href="/styles/main.css" type="text/css" /> -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/vendorInterface.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
   <!--Google Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,8 +25,20 @@
 <body>
   <%- include('partials/_header.ejs') %>
   <main id="container">
-    <section id="orders-container">
-
+    <section class="log-in">
+      <form id="login-form" enctype="application/x-www-form-urlencoded">
+        <div class="email-id">
+          <label>Email Id</label>
+          <input type="email" name="email" placeholder="Email Id">
+        </div>
+        <div class="password">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Password">
+        </div>
+        <div class="login-button">
+          <button>Login</button>
+        </div>
+      </form>
     </section>
 
   </main>
