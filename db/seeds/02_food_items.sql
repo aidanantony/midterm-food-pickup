@@ -1,0 +1,10 @@
+INSERT INTO food_items (id, name, image_url, price) VALUES (1, 'Lobster Roll', 'https://www.simplyrecipes.com/recipes/classic_new_england_lobster_rolls/', 15);
+INSERT INTO food_items (id, name, image_url, price) VALUES (2, 'Crab Cakes', 'https://www.delish.com/cooking/recipe-ideas/recipes/a58704/best-crab-cakes-recipe/', 10);
+INSERT INTO food_items (id, name, image_url, price) VALUES (3, 'Shrimp Cocktail', 'https://www.bonappetit.com/recipe/bas-best-shrimp-cocktail', 18);
+INSERT INTO food_items (id, name, image_url, price) VALUES (4, 'Calamari', 'https://www.dinneratthezoo.com/fried-calamari-recipe/', 20);
+INSERT INTO food_items (id, name, image_url, price) VALUES (5, 'Roasted Mussels', 'https://recipes.instantpot.com/recipe/mussels-with-tomatoes-and-white-wine-broth/', 23);
+INSERT INTO food_items (id, name, image_url, price) VALUES (6, 'Grilled Shrimp Skewers', 'https://www.dinneratthezoo.com/grilled-shrimp-skewers/', 22);
+INSERT INTO food_items (id, name, image_url, price) VALUES (7, 'Baked Tilapia', 'https://www.wholesomeyum.com/baked-tilapia/', 28);
+INSERT INTO food_items (id, name, image_url, price) VALUES (8, 'Smoked Salmon', 'https://leitesculinaria.com/322222/recipes-smoked-salmon-bourbon-marinade.html', 25);
+INSERT INTO food_items (id, name, image_url, price) VALUES (9, 'Snow Crab Legs', 'https://natashaskitchen.com/crab-legs/', 37);
+INSERT INTO food_items (id, name, image_url, price) VALUES (10, 'Surf and Turf', 'https://www.thecookierookie.com/web-stories/surf-and-turf-steak-and-lobster-story/', 60);

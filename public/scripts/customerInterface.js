@@ -7,7 +7,7 @@
 
 
 $(() => {
-  renderFood(foods);
+  render(foods);
 });
 
 
@@ -34,14 +34,8 @@ const createFoodItem = function(food) {
 // };
 
 
-// const createTweetElement = function(tweet) {
-//   const article = $(`<article><header><div class="header-user"><img src=${tweet.user.avatars}><h5 class="user">${tweet.user.name}</h5></div><div class="header-replyingTo">${tweet.user.handle}</div></header><p class="tweet-data">${safeHtml(tweet.content.text)}</p><footer class="tweet-container-footer"><div class="footer-time"><p>${timeago.format(tweet.created_at)}</p></div><div class="footer-icon"><i class="fa-solid fa-flag fa-xs"></i>
-//   <i class="fa-solid fa-retweet fa-xs"></i><i class="fa-solid fa-heart fa-xs"></i></div></footer></article>`);
-//   return $('.tweet-container').prepend(article);
-// };
-
-const renderFood = function(foodDatabase) {
-  for (let food of foodDatabase) {
-    createFoodItem(food);
+const render = function(dataObject) {
+  for (let object of dataObject) {
+    createFoodItem(object);
   }
 };
