@@ -21,7 +21,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="/scripts/helperData/foodItems.js"></script> <!--ensuring food items are accessible to fns in customerInterface script-->
+
+  <!--ensuring mock data is available to before customerInterface script loads-->
+  <script type="text/javascript" src="/scripts/helperData/mockMenu.js"></script>
+  <script type="text/javascript" src="/scripts/helperData/mockOrders.js"></script>
+
   <script type="text/javascript" src="/scripts/customerInterface.js"></script>
 
 </head>
@@ -44,7 +48,7 @@
 
     <div class = "customer">
       <div class = "checkout">
-        <h1>Number of items in {userIds} cart: (0)</h1>
+        <h1>Number of items in <%= users[0].name %> cart: (0)</h1>
         <button class="checkout" type="submit">Checkout</button>
       </div>
       <div class = "customer_cart">

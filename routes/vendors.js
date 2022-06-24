@@ -13,7 +13,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
-        res.render('customerInterface', { users });
+        res.render('vendorInterface', { users });
       })
       .catch(err => {
         res

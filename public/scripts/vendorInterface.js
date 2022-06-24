@@ -176,3 +176,13 @@ $(document).on('click', '.preparedButton', function (event) {
   renderOrders(orders);
 
 });
+
+
+module.exports = {
+  createOrderFooter,
+  renderOrderItems,
+  createOrderItemElement,
+  renderOrders,
+  createOrderElement,
+  orders
+}
