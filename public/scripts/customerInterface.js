@@ -23,17 +23,18 @@ const createFoodItem = function(food) {
   return $('.restaurant_food_items').prepend(food_item);
 };
 
-// const createOrderItem = function() {
-//   const order_item = $(`
-//   <div class = "order_item">
-//     <div class = "order_details">
-//       <img src = "https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https%3A%2F%2Ffoodsided.com%2Ffiles%2F2020%2F09%2FIMG_8637.jpg"></img>
-//       <p>A Big Giant Lobster</p>
-//     </div>
-//     <button class="remove_food_item" type="submit">Remove</button>
-//   </div>`);
-//   return $('.customer_cart').prepend(order_item);
-// };
+const createOrderItem = function(order) {
+  const order_item = $(`
+  <div class = "order_item">
+    <div class = "order_details">
+      <p>A Big Giant Lobster</p>
+      <p>A Big Giant Lobster</p>
+      <p>A Big Giant Lobster</p>
+    </div>
+    <button class="remove_food_item" type="submit">Remove</button>
+  </div>`);
+  return $('.customer_cart').prepend(order_item);
+};
 
 
 const render = function(dataObject, callback) {
