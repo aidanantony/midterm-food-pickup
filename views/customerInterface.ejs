@@ -46,18 +46,18 @@
       </div>
     </div>
     <br>
-
-    <div class = "customer">
-      <div class = "checkout">
-        <h1>Number of items in <%= users[0].name %> cart: <span>0</span></h1>
-        <button class="checkout" type="submit">Checkout</button>
-      </div>
-      <div class = "customer_cart">
+    <form class = "customer" action="/" method="POST">
+      <div class = "customer">
+        <div class = "checkout">
+          <h1>Number of items in <%= users[0].name %> cart: <span>0</span></h1>
+            <button class="checkout" type="submit">Checkout</button>
+        </div>
+        <div class = "customer_cart">
         </div>
       </div>
-    </div>
-  </main>
+    </form>
+  </div>
+</main>
 
 </body>
-
 </html>

@@ -6,7 +6,7 @@
 
 $(() => {
   render(foods, createFoodItem);
-
+  const orderForDatabasePost = {};
   $(document).on('click', '.add_food_item', function() {
     createOrderItem($(this).val());
     orderCounter();
@@ -16,11 +16,16 @@ $(() => {
     $(this).parent().remove();
     orderCounter();
   });
+
+  // $(document).on('click', '.checkout', function() {
+
+  // });
+
 });
 
 const orderCounter = function () {
-  $('.checkout span').text($('.customer_cart > *').length);
-}
+  $('.checkout span').text($('.customer_cart > *').length); //counting direct child nodes
+};
 
 const createFoodItem = function(food) {
   const food_item = $(`
@@ -29,7 +34,6 @@ const createFoodItem = function(food) {
     <div class = "food_item_details">
       <p>${food.name}</p>
       <button class="add_food_item" value = "${food.name}">Add</button>
-      </form>
     </div>
   </div>
   `);
@@ -52,5 +56,6 @@ const render = function(dataObject, callback) {
     callback(object);
   }
 };
+
 
 

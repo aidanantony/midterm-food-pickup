@@ -22,7 +22,11 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/", (req, res) => {
+    console.log(req.params);
+    res.render('customerInterface', { users });
 
+  });
 
 
   return router;
