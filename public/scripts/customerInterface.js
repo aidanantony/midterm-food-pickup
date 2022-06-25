@@ -7,8 +7,8 @@
 $(() => {
   render(foods, createFoodItem);
   const orderForDatabasePost = {};
-  $(document).on('click', '.add_food_item', function() {
-    createOrderItem($(this).val());
+  $(document).on('click', '.add_food_item', function(event) {
+    createOrderItem($(event.target).val(), $(event.target).attr("data-id"));
     orderCounter();
   });
 
@@ -32,15 +32,16 @@ const createFoodItem = function(food) {
     <img src = "${food.image_url}"></img>
     <div class = "food_item_details">
       <p>${food.name}</p>
-      <button class="add_food_item" value = "${food.name}">Add</button>
+      <button class="add_food_item" value = "${food.name}" data-id = "${food.id}">Add</button>
     </div>
   </div>
   `);
   return $('.restaurant_food_items').prepend(food_item);
 };
 
-const createOrderItem = function(foodName) {
+const createOrderItem = function(foodName, foodId) {
   const order_item = $(`
+  <input name= "food" value="${foodId}" />
   <div class = "order_item">
     <div class = "order_details">
       <p>${foodName}</p>
