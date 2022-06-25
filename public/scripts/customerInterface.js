@@ -18,7 +18,6 @@ $(() => {
   });
 
   // $(document).on('click', '.checkout', function() {
-
   // });
 
 });
