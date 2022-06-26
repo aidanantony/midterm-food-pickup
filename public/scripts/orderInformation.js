@@ -1,10 +1,4 @@
 $(document).ready(function() {
-  //location.reload();
-  // let order =
-  // allOrders[currentSelectedOrder-1];
-
-  //   console.log("Order Number: ", currentSelectedOrder);
-  // let items= allOrders[currentSelectedOrder-1].items;
 
   const $orderInformation = $(`
     <section id="orders-container">
@@ -24,9 +18,9 @@ $(document).ready(function() {
     const order = $(`
       <section class="order-container">
         <header>
-          <p>${orderData.orderNumber}</p>
-          <p>${orderData.orderStatus}</p>
-          <p>${orderData.prepTime} minutes</p>
+          <p>${orderData.ordernumber}</p>
+          <p>${orderData.orderstatus}</p>
+          <p>${orderData.preptime} minutes</p>
           <button class="backButton">Back</button>
         </header>
         <div class="orderItems"></div>
@@ -38,7 +32,7 @@ $(document).ready(function() {
   const createOrderItemElement = function(item) {
     const orderItem = `
       <div class="orderItem">
-        <p>${item.name}</p>
+        <p>${item.itemname}</p>
         <p>${item.quantity}</p>
       </div>
     `;
@@ -58,9 +52,9 @@ $(document).ready(function() {
   }
 
 
-  const renderOrder = function(order) {
+  const renderOrder = function(order, items) {
     const $order = createOrderElement(order);
-    const $orderItems = renderOrderItems(order.items);
+    const $orderItems = renderOrderItems(items);
     $order.append($orderItems);
     const $footer = createOrderFooter(order);
     $order.append($footer);
@@ -88,10 +82,16 @@ $(document).ready(function() {
   });
 
   //renderOrder(order);
-  function getOrder(orderNumber) {
+  function getOrder(orderNumber, order) {
     console.log("In order information");
-    clearListings();
-    renderOrder(allOrders[orderNumber-1]);
+    getItemsForCurrentOrder(orderNumber)
+    .then(function(items) {
+      console.log(items);
+      clearListings();
+      renderOrder(order, items);
+    })
+    .catch(error => console.error(error));
+
     //$propertyListings.append(listing);
   }
 

@@ -58,8 +58,13 @@ app.use("/api/vendors", vendorsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/vendors", (req, res) => {
   res.render("vendorInterface");
 });
+
 
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();

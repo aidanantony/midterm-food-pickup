@@ -3,7 +3,6 @@ $(() => {
   const $main = $('#vendor-container');
 
   window.vendorViewsManager = {};
-  window.vendorViewsManager.currentOrder = 1;
 
   window.vendorViewsManager.show = function(item) {
     $vendorInterface.detach();
