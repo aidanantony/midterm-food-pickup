@@ -23,12 +23,9 @@ module.exports = (db) => {
   });
 
   router.post("/orders", (req, res) => {
-    //console.log(req.params);
-    //res.render('customerInterface', { users });
     console.log(req.body);
-    res.send('order complete');
+    //res.render('customerOrderConfirmation');
   });
-
 
   return router;
 };

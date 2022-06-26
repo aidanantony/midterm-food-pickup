@@ -23,6 +23,7 @@ p {
   margin: 0.1em;
 }
 
+
 div {
 margin: 1rem;
 }
@@ -80,6 +81,10 @@ main {
   border-color: black;
   border-width: 4px;
 
+}
+
+.customer form {
+  border: none;
 }
 
 .restaurant_details {
@@ -152,10 +157,6 @@ main {
   color: #ffffff;
 }
 
-.customer_cart {
-
-}
-
 
 .order_item {
   background-color: #ffffff;
@@ -183,5 +184,13 @@ main {
   flex-direction: row;
 }
 
+.customerOrderConfirmation {
+  background-color: #ffffff;
+  padding : 2rem;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  text-align: center;
+}
 
 

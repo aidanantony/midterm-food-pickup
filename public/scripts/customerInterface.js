@@ -6,9 +6,9 @@
 
 $(() => {
   render(foods, createFoodItem);
-  const orderForDatabasePost = {};
+
   $(document).on('click', '.add_food_item', function(event) {
-    createOrderItem($(event.target).val(), $(event.target).attr("data-id"));
+    createOrderItem($(event.target).val(), $(event.target).attr("data-id")); //taking in food
     orderCounter();
   });
 
@@ -41,9 +41,9 @@ const createFoodItem = function(food) {
 
 const createOrderItem = function(foodName, foodId) {
   const order_item = $(`
-  <input name= "food" value="${foodId}" />
   <div class = "order_item">
     <div class = "order_details">
+    <input name= "food" value = "${foodId}" />
       <p>${foodName}</p>
     </div>
     <button class="remove_food_item" value = "">Remove</button>

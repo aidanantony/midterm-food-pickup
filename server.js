@@ -45,7 +45,7 @@ const vendorsRoutes = require("./routes/vendors");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/users", usersRoutes(db));
-app.use("/api/vendors", vendorsRoutes(db));
+app.use("/vendors", vendorsRoutes(db));
 //app.use("/api/widgets", widgetsRoutes(db)); //not part of scope
 // Note: mount other resources here, using the same pattern above
 
