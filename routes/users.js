@@ -23,8 +23,17 @@ module.exports = (db) => {
   });
 
   router.post("/orders", (req, res) => {
-    console.log(req.body);
-    //res.render('customerOrderConfirmation');
+    console.log(req.body.food[0]);
+    const userOrder = req.body.food;
+    for (let foodItemId of userOrder) {
+      const foodItemNumberFromUser = parseInt(foodItemId);
+      db.query(`SELECT * FROM food_items WHERE id = ${foodItemNumberFromUser};`)
+        .then(data => {
+          const foodItemDetailsFromDatabase = data.rows;
+          console.log('User Order: ', foodItemDetailsFromDatabase);
+        });
+    }
+    res.render('customerOrderConfirmation');
   });
 
   return router;

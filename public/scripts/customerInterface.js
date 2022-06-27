@@ -43,7 +43,7 @@ const createOrderItem = function(foodName, foodId) {
   const order_item = $(`
   <div class = "order_item">
     <div class = "order_details">
-    <input name= "food" value = "${foodId}" />
+    <input name= "food" value = "${foodId}" type = "hidden"/>
       <p>${foodName}</p>
     </div>
     <button class="remove_food_item" value = "">Remove</button>
