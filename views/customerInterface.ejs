@@ -44,7 +44,7 @@
             <img src = "<%= food.image_url %>"></img>
             <div class = "food_item_details">
               <p><%= food.name %></p>
-              <button class="add_food_item" value = "<%= food.name %>" data-id = "<%= food.id %>">Add</button>
+              <button class="add_food_item" value = "<%= food.name %>" data-id = "<%= food.id %>" data-url = "<%= food.image_url %>">Add</button>
             </div>
           </div>
         <% } %>
