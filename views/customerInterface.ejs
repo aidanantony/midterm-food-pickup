@@ -39,6 +39,15 @@
           <p>(403) 123-4567</p></div>
       </div>
       <div class = "restaurant_food_items">
+        <% for (let food of foodItemsForMenu) { %>
+          <div class = food_item>
+            <img src = "<%= food.image_url %>"></img>
+            <div class = "food_item_details">
+              <p><%= food.name %></p>
+              <button class="add_food_item" value = "<%= food.name %>" data-id = "<%= food.id %>">Add</button>
+            </div>
+          </div>
+        <% } %>
         </div>
       </div>
     </div>
@@ -46,7 +55,7 @@
     <div class = "customer">
       <form class = "customer" action="/users/orders" method="POST">
       <div class = "checkout">
-        <h1>Number of items in <%= users[0].name %> cart: <span> (0)</span></h1>
+        <h1>Number of items in <%/*= users[0].name */%> cart: <span> (0)</span></h1>
         <button class="checkout" type="submit">Checkout</button>
       </div>
       <div class = "customer_cart">
