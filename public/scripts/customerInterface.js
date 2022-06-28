@@ -7,23 +7,7 @@
 
 const orderCounter = function () {
   $('.checkout span').text($('.customer_cart > *').length); //counting direct child nodes
-  if ($('.customer_cart > *').length === 0) { //disabling checkout button if cart is empty
-    document.getElementById(".customer button").disabled = true;
-  }
 };
-
-// const createFoodItem = function(food) {
-//   const food_item = $(`
-//   <div class = food_item>
-//     <img src = "${food.image_url}"></img>
-//     <div class = "food_item_details">
-//       <p>${food.name}</p>
-//       <button class="add_food_item" value = "${food.name}" data-id = "${food.id}">Add</button>
-//     </div>
-//   </div>
-//   `);
-//   return $('.restaurant_food_items').prepend(food_item);
-// };
 
 const createOrderItem = function(foodName, foodId, foodUrl) {
   const order_item = $(`
@@ -38,17 +22,7 @@ const createOrderItem = function(foodName, foodId, foodUrl) {
   return $('.customer_cart').prepend(order_item);
 };
 
-// const render = function(dataObject, callback) {
-//   for (let object of dataObject) {
-//     callback(object);
-//   }
-// };
-
-
 $(() => {
-  //render(foods, createFoodItem);
-  //console.log('customer interface: ',foodItemsForMenu);
-  //render(foodItemsForMenu, createFoodItem);
   $(document).on('click', '.add_food_item', function(event) {
     createOrderItem($(event.target).val(), $(event.target).attr("data-id"), $(event.target).attr("data-url")); //taking in food
     orderCounter();
