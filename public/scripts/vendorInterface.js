@@ -2,13 +2,7 @@ $(document).ready(function() {
 
   // const receivedOrders = [];
   let receivedOrders = [];
-  getOrders()
-  .then(function(orders) {
-    console.log(orders);
-    receivedOrders = orders;
-    renderOrders(orders);
-  })
-  .catch(error => console.error(error));
+
 
   const $vendorInterface = $(`
   <section id="orders-container">
@@ -16,6 +10,12 @@ $(document).ready(function() {
     </section>
   `);
   window.$vendorInterface = $vendorInterface;
+  window.vendorInterface = {};
+
+  function clearListings() {
+    $vendorInterface.empty();
+  }
+
 
   const createOrderElement = function(orderData) {
     console.log("Order data: ", orderData);
@@ -48,12 +48,15 @@ $(document).ready(function() {
 
 
 $(document).on('click', '.preparedButton', function (event) {
-  // your function here
-  //console.log("Button clicked: ", event.target.id);
   const currentOrder = receivedOrders.find(order => order.ordernumber === Number($(event.target).attr("data-id")));
-  //console.log("Name: " + currentOrder.customer.name + " phone: " + currentOrder.customer.phone);
   const alertString = "Name: " + currentOrder.name + " phone: " + currentOrder.phone;
-  alert(alertString);
+  // alert(alertString);
+  updateOrderStatus(currentOrder.ordernumber)
+  .then(function(orders) {
+    console.log(orders);
+    getAllOrders();
+  })
+  .catch(error => console.error(error));
   event.stopPropagation();
 });
 
@@ -70,6 +73,19 @@ $(document).on('click', '.order-header', function (event) {
 
 });
 
+function getAllOrders() {
+  clearListings();
+  getOrders()
+  .then(function(orders) {
+    console.log(orders);
+    receivedOrders = orders;
+    renderOrders(orders);
+  })
+  .catch(error => console.error(error));
+}
 
+window.vendorInterface.getAllOrders = getAllOrders;
+
+getAllOrders();
 
 });
