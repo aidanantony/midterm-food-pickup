@@ -5,3 +5,4 @@ public/styles
 *.sqlite3
 .env.example
 foodItems.json
+users_commented_copy.js
