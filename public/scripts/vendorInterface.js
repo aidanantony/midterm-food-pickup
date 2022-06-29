@@ -73,3 +73,13 @@ $(document).on('click', '.order-header', function (event) {
 
 
 });
+
+
+module.exports = {
+  createOrderFooter,
+  renderOrderItems,
+  createOrderItemElement,
+  renderOrders,
+  createOrderElement,
+  orders
+}

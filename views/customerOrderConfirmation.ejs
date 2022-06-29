@@ -22,8 +22,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!--ensuring mock data is available to before customerInterface script loads-->
   <script type="text/javascript" src="/scripts/helperData/mockMenu.js"></script>
-  <!--ensuring food items are accessible to fns in customerInterface script-->
+  <script type="text/javascript" src="/scripts/helperData/mockOrders.js"></script>
+
   <script type="text/javascript" src="/scripts/customerInterface.js"></script>
 
 </head>
@@ -31,37 +34,10 @@
 <body>
   <%- include('partials/_header.ejs') %>
   <main>
-    <div class = "vendor">
-      <div class = "restaurant_details">
-        <div class = "restaurant_name"><h1>River Café</h1></div>
-        <div class = "restaurant_contact_details">
-          <p>6100 Macleod Trail SW #100, Calgary, AB ABC XYZ</p>
-          <p>(403) 123-4567</p></div>
+      <div class = "customerOrderConfirmation">
+          <h2>Thanks for ordering with FoodTruck! Order number <%= newOrderId %> has been submitted to the vendor. Please wait for SMS confirmation on the phone number provided with registration.</h2>
       </div>
-      <div class = "restaurant_food_items">
-        <% for (let food of foodItemsForMenu) { %>
-          <div class = food_item>
-            <img src = "<%= food.image_url %>"></img>
-            <div class = "food_item_details">
-              <p><%= food.name %></p>
-              <button class="add_food_item" value = "<%= food.name %>" data-id = "<%= food.id %>" data-url = "<%= food.image_url %>">Add</button>
-            </div>
-          </div>
-        <% } %>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class = "customer">
-      <form class = "customer" action="/users/orders" method="POST">
-      <div class = "checkout">
-        <h1>Number of items in your cart: <span> (0)</span></h1>
-        <button class="checkout" type="submit">Checkout</button>
-      </div>
-      <div class = "customer_cart">
-        </div>
-      </div>
-    </form>
-</body>
+</main>
 
+</body>
 </html>
