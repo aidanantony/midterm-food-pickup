@@ -10,10 +10,12 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+    db.query(`SELECT * FROM users WHERE id = 2;`)
       .then(data => {
-        const users = data.rows;
-        res.render("customerInterface",{ users });
+        const user = data.rows[0];
+        console.log("label user", user)
+        res.cookie('user_id', 2)
+        res.render("customerInterface",{ user });
       })
       .catch(err => {
         res
@@ -21,8 +23,5 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-  // router.get("/", (req, res) => {
-  //   res.render("customerInterface");
-  // });
   return router;
 };

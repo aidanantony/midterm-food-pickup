@@ -64,6 +64,24 @@ module.exports = (db) => {
       });
   });
 
+// router.get("/", (req, res) => {
+//   res.cookie('user_id', 3)
+//   res.redirect("/vendors")
+// })
 
+router.get("/", (req, res) => {
+  db.query(`SELECT * FROM users WHERE id = 3;`)
+    .then(data => {
+      const user = data.rows[0];
+      console.log("label user", user)
+      res.cookie('user_id', 3)
+      res.render("vendorInterface",{ user });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
   return router;
 };

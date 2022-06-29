@@ -62,8 +62,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/vendors", (req, res) => {
-  res.render("vendorInterface");
+  res.render("vendorInterface", {user});
 });
+
+app.get("/users", (req, res) => {
+  res.render("customerInterface")
+})
 
 
 app.post('/sms', (req, res) => {
@@ -82,3 +86,10 @@ app.listen(PORT, () => {
 // http.createServer(app).listen(8080, () => {
 //   console.log('Express server listening on port 1337');
 // });
+
+//GET request for logged in user
+
+app.post("/logout", (req,res) => {
+  res.clearCookie("user_id");
+  res.redirect("/");
+});
