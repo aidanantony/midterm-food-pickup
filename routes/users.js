@@ -18,7 +18,6 @@ module.exports = (db) => {
   router.get("/", (req, res) => {//render food menu from DB
     db.query(`SELECT * FROM users WHERE id = 2;`)
       .then(data => {
-        console.log("label user", user);
         res.cookie('user_id', 2);
         return data.rows[0];
       }).then((user) => {
