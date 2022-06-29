@@ -1,7 +1,10 @@
 node_modules/
 public/styles
-.env
+*.env
 *.log
 *.sqlite3
 .env.example
 foodItems.json
+users_commented_copy.js
+public/scripts/helperData/
+widgets.js
