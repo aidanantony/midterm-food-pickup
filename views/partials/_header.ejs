@@ -9,15 +9,20 @@
       <h1>FoodTruck</h1>
   </div>
   <div class="login-logout">
+  <% if (user) { %>
     <div class="user-logged-in">
-      <label id="current-user">abc@gmail.com</label>
-      <button id="logout">Log Out</button>
+      <label id="current-user"> Welcome <%= user.name %>!</label>
+      <form action="/logout" method="POST">
+        <button type="Submit" class="btn btn-primary">Logout</button>
+      </form>
     </div>
+    <%} else { %>
     <div class="user-logged-out">
       <!--<button id="signup">Sign Up</button>-->
       <form id = "login" action = "users/login/:id" method = "POST">
       <button id="login">Log-In/Log-Out</button>
     </form>
     </div>
+    <% } %>
   </div>
 </header>

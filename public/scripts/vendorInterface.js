@@ -3,12 +3,12 @@ $(document).ready(function() {
   // const receivedOrders = [];
   let receivedOrders = [];
   getOrders()
-  .then(function(orders) {
-    console.log(orders);
-    receivedOrders = orders;
-    renderOrders(orders);
-  })
-  .catch(error => console.error(error));
+    .then(function(orders) {
+      console.log(orders);
+      receivedOrders = orders;
+      renderOrders(orders);
+    })
+    .catch(error => console.error(error));
 
   const $vendorInterface = $(`
   <section id="orders-container">
@@ -47,28 +47,28 @@ $(document).ready(function() {
   };
 
 
-$(document).on('click', '.preparedButton', function (event) {
-  // your function here
-  //console.log("Button clicked: ", event.target.id);
-  const currentOrder = receivedOrders.find(order => order.ordernumber === Number($(event.target).attr("data-id")));
-  //console.log("Name: " + currentOrder.customer.name + " phone: " + currentOrder.customer.phone);
-  const alertString = "Name: " + currentOrder.name + " phone: " + currentOrder.phone;
-  alert(alertString);
-  event.stopPropagation();
-});
+  $(document).on('click', '.preparedButton', function(event) {
+    // your function here
+    //console.log("Button clicked: ", event.target.id);
+    const currentOrder = receivedOrders.find(order => order.ordernumber === Number($(event.target).attr("data-id")));
+    //console.log("Name: " + currentOrder.customer.name + " phone: " + currentOrder.customer.phone);
+    const alertString = "Name: " + currentOrder.name + " phone: " + currentOrder.phone;
+    alert(alertString);
+    event.stopPropagation();
+  });
 
-$(document).on('click', '.order-header', function (event) {
-  // your function here
-  const currentOrder = receivedOrders.find(order => order.ordernumber === Number($(event.target).attr("data-id")));
-  currentSelectedOrder = Number($(event.target).attr("data-id"));
-  // renderOrder()
-   console.log("bhsback: ", currentSelectedOrder);
-  // vendorViewsManager.show('orderDetail');
+  $(document).on('click', '.order-header', function(event) {
+    // your function here
+    const currentOrder = receivedOrders.find(order => order.ordernumber === Number($(event.target).attr("data-id")));
+    currentSelectedOrder = Number($(event.target).attr("data-id"));
+    // renderOrder()
+    console.log("bhsback: ", currentSelectedOrder);
+    // vendorViewsManager.show('orderDetail');
 
-  orderInformation.getOrder(currentSelectedOrder, currentOrder);
-  vendorViewsManager.show('listings');
+    orderInformation.getOrder(currentSelectedOrder, currentOrder);
+    vendorViewsManager.show('listings');
 
-});
+  });
 
 
 
@@ -82,4 +82,4 @@ module.exports = {
   renderOrders,
   createOrderElement,
   orders
-}
+};
