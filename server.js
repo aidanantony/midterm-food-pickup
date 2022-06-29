@@ -14,6 +14,10 @@ const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
 
+//Twilio
+const http = require('http');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
 //requiring food to preload
 
 
@@ -57,6 +61,24 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/vendors", (req, res) => {
+  res.render("vendorInterface");
+});
+
+
+app.post('/sms', (req, res) => {
+  const twiml = new MessagingResponse();
+  console.log("In twilio");
+
+  twiml.message('Thank you!vjkfbkjgghgjhjvhjvjhvjhvjhvj');
+
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+// http.createServer(app).listen(8080, () => {
+//   console.log('Express server listening on port 1337');
+// });
