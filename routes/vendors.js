@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
+const { sendMessageToClient } = require('../send_sms');
 
 module.exports = (db) => {
 
@@ -54,9 +55,10 @@ module.exports = (db) => {
       });
   });
 
-  router.post(`/order/update/:id`, (req, res) => {
+  router.post(`/order/update/:id/:phone`, (req, res) => {
 
     const order_id = req.params.id;
+    const phone = req.params.phone;
     const {prepTime} = req.body;
     console.log("order id: and prepTime: ", order_id, prepTime);
     let query = `UPDATE user_orders
@@ -67,7 +69,9 @@ module.exports = (db) => {
     db.query(query, queryParams)
       .then(data => {
         const orders = data.rows;
-
+        const message = `Hi! Your order will be ready in ${orders[0].prep_time} minutes. Thank you!`
+        console.log(message, phone);
+        sendMessageToClient(message, phone);
         res.json(orders[0]);
       })
       .catch(err => {
@@ -77,9 +81,10 @@ module.exports = (db) => {
       });
   });
 
-  router.get(`/order/status/:id`, (req, res) => {
+  router.get(`/order/status/:id/:phone`, (req, res) => {
 
     const order_id = req.params.id;
+    const phone = req.params.phone;
     console.log("order id: ", order_id);
     let query = `UPDATE user_orders
     SET current_status='Completed'
@@ -89,7 +94,9 @@ module.exports = (db) => {
     db.query(query, queryParams)
       .then(data => {
         const orders = data.rows;
-
+        const message = `Hi! Your order is ready. Thank you!`
+        console.log(message, phone);
+        sendMessageToClient(message, phone);
         res.json(orders[0]);
       })
       .catch(err => {

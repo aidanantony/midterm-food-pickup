@@ -27,7 +27,6 @@ $(document).ready(function() {
           <p>${orderData.preptime} minutes</p>
           <button class="preparedButton" data-id = "${orderData.ordernumber}">Prepared</button>
         </header>
-        <div class="orderItems"></div>
       </article>
     `);
 
@@ -51,7 +50,7 @@ $(document).on('click', '.preparedButton', function (event) {
   const currentOrder = receivedOrders.find(order => order.ordernumber === Number($(event.target).attr("data-id")));
   const alertString = "Name: " + currentOrder.name + " phone: " + currentOrder.phone;
   // alert(alertString);
-  updateOrderStatus(currentOrder.ordernumber)
+  updateOrderStatus(currentOrder.ordernumber, currentOrder.phone)
   .then(function(orders) {
     console.log(orders);
     getAllOrders();

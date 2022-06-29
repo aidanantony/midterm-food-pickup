@@ -12,7 +12,7 @@ $(document).ready(function() {
     $orderInformation.empty();
   }
 
-  let currentOrderNumber= 1;
+  let currentOrder= 1;
 
   const createOrderElement = function(orderData) {
     const order = $(`
@@ -76,6 +76,7 @@ $(document).ready(function() {
 
 
   const renderOrder = function(order, items) {
+    currentOrder = order;
     const $order = createOrderElement(order);
     const $orderItems = renderOrderItems(items);
     $order.append($orderItems);
@@ -105,12 +106,9 @@ $(document).ready(function() {
 
     const data = $(this).serialize();
 
-    updatePrepTime(data, currentOrderNumber)
+    updatePrepTime(data, currentOrder.ordernumber, currentOrder.phone)
       .then(order => {
         console.log(order);
-        const message = `Hi! Your order number: ${order.id} will be ready in ${order.prep_time} minutes. Thank you!`
-        console.log(message);
-        //sendMessageToClient("5875728158", message);
         vendorInterface.getAllOrders();
         vendorViewsManager.show('allOrders');
       });
