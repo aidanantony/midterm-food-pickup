@@ -22,9 +22,9 @@ $(document).ready(function() {
     const order = $(`
       <article class="order-container">
         <header data-id = "${orderData.ordernumber}" class="order-header">
-          <p>${orderData.ordernumber}</p>
-          <p>${orderData.orderstatus}</p>
-          <p>${orderData.preptime} minutes</p>
+          <p>Order Number: ${orderData.ordernumber}</p>
+          <p>Status: ${orderData.orderstatus}</p>
+          <p>Prep Time: ${orderData.preptime} minutes</p>
           <button class="preparedButton" data-id = "${orderData.ordernumber}">Prepared</button>
         </header>
       </article>

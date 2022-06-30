@@ -18,12 +18,15 @@ $(document).ready(function() {
     const order = $(`
       <section class="order-container">
         <header>
-          <p>${orderData.ordernumber}</p>
-          <p>${orderData.orderstatus}</p>
-          <p>${orderData.preptime} minutes</p>
+          <p>Order Number: ${orderData.ordernumber}</p>
+          <p>Status: ${orderData.orderstatus}</p>
+          <p>Prep Time: ${orderData.preptime} minutes</p>
           <button id="backButton">Back</button>
         </header>
-        <div class="orderItems"></div>
+        <div class="orderItemsHeading">
+          <p>Item Name</p>
+          <p>Quantity</p>
+        </div>
       </article>
     `);
 
