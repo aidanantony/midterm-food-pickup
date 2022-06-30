@@ -48,14 +48,16 @@ $(document).ready(function() {
 
 $(document).on('click', '.preparedButton', function (event) {
   const currentOrder = receivedOrders.find(order => order.ordernumber === Number($(event.target).attr("data-id")));
-  const alertString = "Name: " + currentOrder.name + " phone: " + currentOrder.phone;
+  //const alertString = "Name: " + currentOrder.name + " phone: " + currentOrder.phone;
   // alert(alertString);
-  updateOrderStatus(currentOrder.ordernumber, currentOrder.phone)
-  .then(function(orders) {
-    console.log(orders);
-    getAllOrders();
-  })
-  .catch(error => console.error(error));
+  if (currentOrder.orderstatus === "Confirmed") {
+    updateOrderStatus(currentOrder.ordernumber, currentOrder.phone)
+    .then(function(orders) {
+      console.log(orders);
+      getAllOrders();
+    })
+    .catch(error => console.error(error));
+  }
   event.stopPropagation();
 });
 
