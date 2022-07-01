@@ -1,3 +1,11 @@
 INSERT INTO line_items (food_item_id, user_order_id ) VALUES (2, 2);
 INSERT INTO line_items (food_item_id, user_order_id ) VALUES (4, 2);
 INSERT INTO line_items (food_item_id, user_order_id ) VALUES (7, 2);
+INSERT INTO line_items (food_item_id, user_order_id ) VALUES (2, 2);
+INSERT INTO line_items (food_item_id, user_order_id ) VALUES (4, 2);
+INSERT INTO line_items (food_item_id, user_order_id ) VALUES (7, 2);
+INSERT INTO line_items (food_item_id, user_order_id ) VALUES (7, 4);
+INSERT INTO line_items (food_item_id, user_order_id ) VALUES (8, 4);
+INSERT INTO line_items (food_item_id, user_order_id ) VALUES (1, 4);
+INSERT INTO line_items (food_item_id, user_order_id ) VALUES (6, 4);
+INSERT INTO line_items (food_item_id, user_order_id ) VALUES (6, 4);

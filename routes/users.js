@@ -6,22 +6,28 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const { sendMessageToClient } = require('../public/scripts/send_sms_twilio');
 
 
 module.exports = (db) => {
 
-  router.get('/login/:id', (req, res) => { //accessible on users/login/<id> //login fnctionality to follow
-    res.cookie('user_id', req.params.id);
-    res.redirect('/users');
-  });
+
+
 
   router.get("/", (req, res) => {//render food menu from DB
-    db.query(`SELECT * FROM food_items;`)
+    db.query(`SELECT * FROM users WHERE id = 2;`)
       .then(data => {
-        const foodItemsForMenu = data.rows;
-        res.render('customerInterface', { foodItemsForMenu });
+        res.cookie('user_id', 2);
+        return data.rows[0];
+      }).then((user) => {
+
+        db.query(`SELECT * FROM food_items;`)
+          .then(data => {
+            const foodItemsForMenu = data.rows;
+            res.render('customerInterface', { foodItemsForMenu, user });
+
+          });
       })
       .catch(err => {
         res
@@ -32,7 +38,7 @@ module.exports = (db) => {
 
   router.post("/orders", (req, res) => {
     const userId = parseInt(req.cookies.user_id); //extracting user_id from cookies
-    console.log('userID: ',userId);
+    console.log('userID: ', userId);
     const insertUserInfoInUserOrdersTable = `INSERT INTO user_orders(user_id, prep_time, current_status) VALUES ($1, $2, $3) RETURNING id;`;
     db.query(insertUserInfoInUserOrdersTable, [userId, 'N/A', 'New Order']).then((orderId) => {
       const newOrderId = orderId.rows[0].id; //extraching order ID from db returned results
@@ -46,7 +52,7 @@ module.exports = (db) => {
             const insertOrderDetailsInLineItemsTable = `INSERT INTO line_items(food_item_id,user_order_id) VALUES ($1, $2);`;
             db.query(insertOrderDetailsInLineItemsTable, [foodItemDetailsFromDatabase[0].id, newOrderId]); //adding line_items for for users.id = 2
           });
-      } db.query(`SELECT users.phone_number FROM users JOIN user_orders ON users.id = user_orders.user_id WHERE user_orders.id = $1;`, [ newOrderId ]).then((phoneNumber) => {
+      } db.query(`SELECT users.phone_number FROM users JOIN user_orders ON users.id = user_orders.user_id WHERE user_orders.id = $1;`, [newOrderId]).then((phoneNumber) => {
         const receiverPhoneNumber = phoneNumber.rows[0].phone_number;
         const messageForReceiver = `Thank you for ordering with FoodTruck! You order number is ${newOrderId}.`;
         sendMessageToClient(messageForReceiver, receiverPhoneNumber);

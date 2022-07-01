@@ -7,20 +7,11 @@
 
 const express = require('express');
 const router  = express.Router();
+const { sendMessageToClient } = require('../send_sms');
 
 module.exports = (db) => {
 
   router.get("/orders", (req, res) => {
-    // let query = `SELECT user_orders.id as orderNumber, user_orders.prep_time, user_orders.current_status, food_items.name as itemName, count(food_items.name) as quantity,
-    // users.name as name, users.phone_number as phone FROM user_orders
-    // JOIN line_items ON line_items.user_order_id = user_orders.id
-    // JOIN food_items ON line_items.food_item_id = food_items.id
-    // JOIN users ON users.id = user_orders.user_id
-    // GROUP BY orderNumber, itemName, users.name, users.phone_number`;
-    // let query = `SELECT food_items.name as itemName, count(food_items.name) as quantity FROM food_items
-    // JOIN line_items ON line_items.food_item_id = food_items.id
-    // JOIN user_orders ON line_items.user_order_id = user_orders.id
-    // GROUP BY itemName`
 
     let query = `SELECT user_orders.id as ordernumber, user_orders.prep_time as preptime, user_orders.current_status as orderstatus, users.name as name, users.phone_number as phone
     FROM user_orders
@@ -64,6 +55,71 @@ module.exports = (db) => {
       });
   });
 
+  router.post(`/order/update/:id/:phone`, (req, res) => {
 
+    const order_id = req.params.id;
+    const phone = req.params.phone;
+    const {prepTime} = req.body;
+    console.log("order id: and prepTime: ", order_id, prepTime);
+    let query = `UPDATE user_orders
+    SET prep_time = $1, current_status='Confirmed'
+    WHERE id=$2 RETURNING *`;
+    const queryParams = [prepTime, order_id];
+    console.log(query);
+    db.query(query, queryParams)
+      .then(data => {
+        const orders = data.rows;
+        const message = `Hi! Your order will be ready in ${orders[0].prep_time} minutes. Thank you!`
+        console.log(message, phone);
+        sendMessageToClient(message, phone);
+        res.json(orders[0]);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  router.get(`/order/status/:id/:phone`, (req, res) => {
+
+    const order_id = req.params.id;
+    const phone = req.params.phone;
+    console.log("order id: ", order_id);
+    let query = `UPDATE user_orders
+    SET current_status='Completed'
+    WHERE id=$1 RETURNING *`;
+    const queryParams = [order_id];
+    console.log(query);
+    db.query(query, queryParams)
+      .then(data => {
+        const orders = data.rows;
+        const message = `Hi! Your order is ready. Thank you!`
+        console.log(message, phone);
+        sendMessageToClient(message, phone);
+        res.json(orders[0]);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+
+router.get("/", (req, res) => {
+  db.query(`SELECT * FROM users WHERE id = 3;`)
+    .then(data => {
+      const user = data.rows[0];
+      console.log("label user", user)
+      res.cookie('user_id', 3)
+      res.render("vendorInterface",{ user });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
   return router;
 };
