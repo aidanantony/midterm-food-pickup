@@ -21,7 +21,6 @@ module.exports = (db) => {
         res.cookie('user_id', 2);
         return data.rows[0];
       }).then((user) => {
-
         db.query(`SELECT * FROM food_items;`)
           .then(data => {
             const foodItemsForMenu = data.rows;
@@ -56,7 +55,8 @@ module.exports = (db) => {
         const receiverPhoneNumber = phoneNumber.rows[0].phone_number;
         const messageForReceiver = `Thank you for ordering with FoodTruck! You order number is ${newOrderId}.`;
         sendMessageToClient(messageForReceiver, receiverPhoneNumber);
-        res.render('customerOrderConfirmation', { newOrderId });
+        let user = userId; //passing user again to render hearder partial on confirmation page to match with object decalaration used on the front-end
+        res.render('customerOrderConfirmation', { newOrderId, user });
       });
     });
 

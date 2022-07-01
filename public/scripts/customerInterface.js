@@ -7,6 +7,7 @@
 
 const orderCounter = function () {
   $('.checkout span').text($('.customer_cart > *').length); //counting direct child nodes
+
 };
 
 const createOrderItem = function(foodName, foodId, foodUrl) {
