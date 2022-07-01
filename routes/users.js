@@ -7,7 +7,8 @@
 
 const express = require('express');
 const router = express.Router();
-const { sendMessageToClient } = require('../public/scripts/send_sms_twilio');
+//const { sendMessageToClient } = require('../public/scripts/send_sms_twilio');
+const { sendMessageToClient } = require('../send_sms');
 
 
 module.exports = (db) => {

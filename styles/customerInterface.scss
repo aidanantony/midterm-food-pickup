@@ -152,9 +152,19 @@ main {
   margin: 0;
 }
 
-.checkout button {
+button.checkout{
   background-color: #970C10;
   color: #ffffff;
+  font-family: 'Bungee', cursive;
+  border: none;
+  width: fit-content;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 
@@ -193,3 +203,33 @@ main {
 }
 
 
+button.add_food_item {
+  background-color: #738580;
+  color: #000000;
+  font-family: 'Bungee', cursive;
+  border: none;
+  width: fit-content;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+button.remove_food_item {
+  background-color: #738580;
+  color: #000000;
+  font-family: 'Bungee', cursive;
+  border: none;
+  width: fit-content;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
