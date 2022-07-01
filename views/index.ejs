@@ -1,30 +1,30 @@
 <!-- Go either /users OR /vendors for now -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <title>HAZ Foods</title>
-</head>
-<body>
-  <h1>Welcome to HAZ Foods!</h1>
-  <div class="container">
-    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&w=1000&q=80" alt="Food" style="width: 100%;">
-    <div class="centered"></div>
+  <%- include('partials/_header.ejs') %>
+
+  <div class="image" style="display: flex; justify-content: space-between;">
+      <img src="https://images.pexels.com/photos/2253643/pexels-photo-2253643.jpeg?cs=srgb&dl=pexels-dmitry-zvolskiy-2253643.jpg&fm=jpg" alt="Food" style="width: 50%; height: 1005px">
+    <img src="https://images.pexels.com/photos/8556141/pexels-photo-8556141.jpeg?cs=srgb&dl=pexels-polina-tankilevitch-8556141.jpg&fm=jpg" alt="People" style="display: flex; justify-content: flex-end; width: 50%; height: 1005px;">
   </div>
-<main style="margin: 1em; background-color: rgb(0, 195, 255);">
-  <h3> To login as a user, click here!</h3>
-<form action="/api/users" method="GET">
-  <button type="Submit" class="btn btn-primary">User Login</button>
-</form>
-  <h3> To login as a vendor, click here!</h3>
-  <form action="/api/vendors" method="GET">
-    <button type="Submit" class="btn btn-primary">Vendor Login</button>
-  </form>
+  <div class="first-btn">
+    <div class="btn-one-text">
+      <h1> And the people who love <br>to eat great food!</h1>
+    </div>
+    <form action="/api/users" method="GET">
+      <button type="Submit" class="btn btn-primary">User Login</button>
+    </form>
+  </div>
+  <div class="second-btn">
+    <div class="second-btn-text">
+      <h1>We love supporting people <br> who make great food!</h1>
+    </div>
+    <form action="/api/vendors" method="GET">
+      <div class="actual-btn">
+        <button type="Submit" class="btn btn-primary">Vendor Login</button>
+      </div>
+    </form>
+  </div>
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

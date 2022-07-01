@@ -59,27 +59,19 @@ app.use("/api/vendors", vendorsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {user: null});
 });
 
-app.get("/vendors", (req, res) => {
-  res.render("vendorInterface", {user});
-});
+// app.get("/vendors", (req, res) => {
+//   res.render("vendorInterface", {user});
+// });
 
 // app.get("/users", (req, res) => {
 //   res.render("customerInterface")
 // })
 
 
-app.post('/sms', (req, res) => {
-  const twiml = new MessagingResponse();
-  console.log("In twilio");
 
-  twiml.message('Thank you!vjkfbkjgghgjhjvhjvjhvjhvjhvj');
-
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString());
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
