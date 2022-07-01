@@ -54,9 +54,10 @@ module.exports = (db) => {
       } db.query(`SELECT users.phone_number FROM users JOIN user_orders ON users.id = user_orders.user_id WHERE user_orders.id = $1;`, [newOrderId]).then((phoneNumber) => {
         const receiverPhoneNumber = phoneNumber.rows[0].phone_number;
         const messageForReceiver = `Thank you for ordering with FoodTruck! You order number is ${newOrderId}.`;
+        let user = userId;
         sendMessageToClient(messageForReceiver, receiverPhoneNumber);
-        let user = userId; //passing user again to render hearder partial on confirmation page to match with object decalaration used on the front-end
         res.render('customerOrderConfirmation', { newOrderId, user });
+
       });
     });
 

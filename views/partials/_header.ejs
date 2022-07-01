@@ -3,15 +3,46 @@
   <button class="sign_in" type="submit">Sign-In/Sign-Up</button>
 </div>
 </header> -->
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <title>Home Page</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="/styles/main.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/vendorInterface.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/home.css" type="text/css" />
+  <!--Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fascinate&family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/vendorViewsManager.js"></script>
+  <script type="text/javascript" src="/scripts/network.js"></script>
+  <script type="text/javascript" src="/scripts/orderInformation.js"></script>
+  <script type="text/javascript" src="/scripts/vendorInterface.js"></script>
+  <script src="https://kit.fontawesome.com/14baab1a41.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
 <header class="main-header">
   <div class="logo">
-      <h1>FoodTruck</h1>
+      <h1>
+        FoodTruck
+        <i class="fa-solid fa-truck">
+        </i>
+      </h1>
   </div>
   <div class="login-logout">
   <% if (user) { %>
     <div class="user-logged-in">
-      <label id="current-user"> Welcome <%= user.name %>!</label>
+      <label id="current-user"> <b>Welcome <%= user.name %>!</b></label>
       <form action="/logout" method="POST">
         <button type="Submit" class="btn btn-primary">Logout</button>
       </form>
@@ -20,7 +51,6 @@
     <div class="user-logged-out">
       <!--<button id="signup">Sign Up</button>-->
       <form id = "login" action = "users/login/:id" method = "POST">
-      <button id="login">Log-In/Log-Out</button>
     </form>
     </div>
     <% } %>
