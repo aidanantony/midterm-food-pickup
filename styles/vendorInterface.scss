@@ -56,6 +56,18 @@ p {
   border-top: 4px solid black;
 }
 
+.orderItemsHeading {
+  width: 40%;
+  margin: auto;
+  border-top: 4px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  font-weight: bold;
+}
+
 .orderItem {
   display: flex;
   flex-direction: row;

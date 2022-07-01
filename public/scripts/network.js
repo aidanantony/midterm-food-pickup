@@ -14,4 +14,18 @@ function getItemsForCurrentOrder(id) {
   });
 }
 
+function updatePrepTime(data, id, phone) {
+  return $.ajax({
+    method: "POST",
+    url: `/api/vendors/order/update/${id}/${phone}`,
+    data
+  });
+}
+
+function updateOrderStatus(id, phone) {
+  return $.ajax({
+    url: `/api/vendors/order/status/${id}/${phone}`,
+  });
+}
+
 
