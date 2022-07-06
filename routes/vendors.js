@@ -16,7 +16,6 @@ module.exports = (db) => {
     let query = `SELECT user_orders.id as ordernumber, user_orders.prep_time as preptime, user_orders.current_status as orderstatus, users.name as name, users.phone_number as phone
     FROM user_orders
     JOIN users ON user_orders.user_id = users.id`;
-    console.log(query);
     db.query(query)
       .then(data => {
         const orders = data.rows;
@@ -33,7 +32,6 @@ module.exports = (db) => {
   router.get(`/order/items/:id`, (req, res) => {
 
     const order_id = req.params.id;
-    console.log("order id: ", order_id);
     let query = `SELECT food_items.name as itemname, count(food_items.name) as quantity
     FROM food_items
     JOIN line_items ON line_items.food_item_id = food_items.id
@@ -41,7 +39,6 @@ module.exports = (db) => {
     WHERE user_orders.id = $1
     GROUP BY food_items.name`;
     const queryParams = [order_id];
-    console.log(query);
     db.query(query, queryParams)
       .then(data => {
         const items = data.rows;
@@ -60,17 +57,14 @@ module.exports = (db) => {
     const order_id = req.params.id;
     const phone = req.params.phone;
     const {prepTime} = req.body;
-    console.log("order id: and prepTime: ", order_id, prepTime);
     let query = `UPDATE user_orders
     SET prep_time = $1, current_status='Confirmed'
     WHERE id=$2 RETURNING *`;
     const queryParams = [prepTime, order_id];
-    console.log(query);
     db.query(query, queryParams)
       .then(data => {
         const orders = data.rows;
         const message = `Hi! Your order will be ready in ${orders[0].prep_time} minutes. Thank you!`
-        console.log(message, phone);
         sendMessageToClient(message, phone);
         res.json(orders[0]);
       })
@@ -85,17 +79,14 @@ module.exports = (db) => {
 
     const order_id = req.params.id;
     const phone = req.params.phone;
-    console.log("order id: ", order_id);
     let query = `UPDATE user_orders
     SET current_status='Completed'
     WHERE id=$1 RETURNING *`;
     const queryParams = [order_id];
-    console.log(query);
     db.query(query, queryParams)
       .then(data => {
         const orders = data.rows;
         const message = `Hi! Your order is ready. Thank you!`
-        console.log(message, phone);
         sendMessageToClient(message, phone);
         res.json(orders[0]);
       })
@@ -111,7 +102,6 @@ router.get("/", (req, res) => {
   db.query(`SELECT * FROM users WHERE id = 3;`)
     .then(data => {
       const user = data.rows[0];
-      console.log("label user", user)
       res.cookie('user_id', 3)
       res.render("vendorInterface",{ user });
     })

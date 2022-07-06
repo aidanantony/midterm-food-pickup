@@ -4,7 +4,7 @@ $(() => {
 
   window.vendorViewsManager = {};
 
-  window.vendorViewsManager.show = function(item) {
+  window.vendorViewsManager.show = function (item) {
     $vendorInterface.detach();
     $orderInformation.detach();
 
