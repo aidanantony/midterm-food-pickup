@@ -9,13 +9,13 @@ FoodTruck is a food pick up ordering application where a user can login and then
 
 ## Final Product 
 Home Page
-!['Home Page']()
+!['Home Page'](https://github.com/aidanantony/midterm-food-pickup/blob/master/Docs/home.png)
 
 Customer Page
-!['Customer Page']()
+!['Customer Page'](https://github.com/aidanantony/midterm-food-pickup/blob/master/Docs/customer.png)
 
 Vendor Page
-!['Vendor Page']()
+!['Vendor Page'](https://github.com/aidanantony/midterm-food-pickup/blob/master/Docs/vendor.png)
 
 ## Getting Started
 
