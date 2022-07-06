@@ -62,23 +62,9 @@ app.get("/", (req, res) => {
   res.render("index", {user: null});
 });
 
-// app.get("/vendors", (req, res) => {
-//   res.render("vendorInterface", {user});
-// });
-
-// app.get("/users", (req, res) => {
-//   res.render("customerInterface")
-// })
-
-
-
-
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-// http.createServer(app).listen(8080, () => {
-//   console.log('Express server listening on port 1337');
-// });
 
 //GET request for logged in user
 

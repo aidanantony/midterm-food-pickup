@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
   const $orderInformation = $(`
     <section id="orders-container">
@@ -12,9 +12,14 @@ $(document).ready(function() {
     $orderInformation.empty();
   }
 
-  let currentOrder= 1;
+  let currentOrder = 1;
 
-  const createOrderElement = function(orderData) {
+  /**
+   *
+   * @param {*} orderData order object containing order information
+   * @returns order element
+   */
+  const createOrderElement = function (orderData) {
     const order = $(`
       <section class="order-container">
         <header>
@@ -32,7 +37,13 @@ $(document).ready(function() {
 
     return order;
   };
-  const createOrderItemElement = function(item) {
+
+  /**
+   *
+   * @param {*} item food item object containing food item information
+   * @returns item element
+   */
+  const createOrderItemElement = function (item) {
     const orderItem = `
       <div class="orderItem">
         <p>${item.itemname}</p>
@@ -43,7 +54,12 @@ $(document).ready(function() {
     return orderItem;
   }
 
-  const renderOrderItems = function(items) {
+  /**
+   * Loop through all items and display it in a body of order element.
+   * @param {*} items array of food items
+   * @returns items element
+   */
+  const renderOrderItems = function (items) {
     const $items = $(`
       <div class="orderItems"></div>
     `);
@@ -54,7 +70,12 @@ $(document).ready(function() {
     return $items;
   }
 
-  const createOrderFooter = function(order) {
+  /**
+   * Create footer element of order that displays name and phone of customer
+   * @param {*} order order object containing order information
+   * @returns footer element of order
+   */
+  const createOrderFooter = function (order) {
     const $footer = $(`
       <footer>
         <p>${order.name}</p>
@@ -65,7 +86,11 @@ $(document).ready(function() {
     return $footer;
   }
 
-  const confirmOrderForm = function() {
+  /**
+   *
+   * @returns form element to input prep time.
+   */
+  const confirmOrderForm = function () {
     const confirmOrder = $(`
       <form id="confirmOrderForm" >
         <label>Time to prepare: </label>
@@ -77,15 +102,18 @@ $(document).ready(function() {
     return confirmOrder;
   }
 
-
-  const renderOrder = function(order, items) {
+  /**
+   * Display order details on page.
+   * @param {*} order order object containing order details
+   * @param {*} items food items object containing food items details
+   */
+  const renderOrder = function (order, items) {
     currentOrder = order;
     const $order = createOrderElement(order);
     const $orderItems = renderOrderItems(items);
     $order.append($orderItems);
     const $footer = createOrderFooter(order);
     $order.append($footer);
-    console.log("bchabk");
     $orderInformation.append($order);
     const $confirmOrder = confirmOrderForm();
     if (order.orderstatus === "New Order") {
@@ -94,55 +122,42 @@ $(document).ready(function() {
 
   };
 
-  // $( "#confirmOrderForm" ).submit(function( event ) {
-  //   console.log("Inside form");
-  //   event.preventDefault();
-  //   const data = $(this).serialize();
-  //   alert( `Handler for .submit() called. ${data.prepTime}` );
-
-  // });
-
-  //$('#confirmOrderForm').submit(function(event){
+  /**
+   * On pressing confirm button, it updates database and send sms to customer
+   */
   $(document).on('submit', '#confirmOrderForm', function (event) {
     event.preventDefault();
-    console.log("Inside form");
 
     const data = $(this).serialize();
 
     updatePrepTime(data, currentOrder.ordernumber, currentOrder.phone)
       .then(order => {
-        console.log(order);
         vendorInterface.getAllOrders();
         vendorViewsManager.show('allOrders');
       });
   });
 
-
+  /**
+   * Go back to main page
+   */
   $(document).on('click', '#backButton', function (event) {
-    // your function here
-    console.log("Inside back button function");
     vendorViewsManager.show('allOrders');
 
   });
 
-  // $( "#backButton" ).on( "click", function() {
-  //   console.log("Inside back button function");
-  //   vendorViewsManager.show('allOrders');
-  // });
-
-  //renderOrder(order);
+  /**
+   * Get order details
+   * @param {*} orderNumber
+   * @param {*} order
+   */
   function getOrder(orderNumber, order) {
-    console.log("In order information");
     currentOrderNumber = orderNumber;
     getItemsForCurrentOrder(orderNumber)
-    .then(function(items) {
-      console.log(items);
-      clearListings();
-      renderOrder(order, items);
-    })
-    .catch(error => console.error(error));
-
-    //$propertyListings.append(listing);
+      .then(function (items) {
+        clearListings();
+        renderOrder(order, items);
+      })
+      .catch(error => console.error(error));
   }
 
   window.orderInformation.getOrder = getOrder;
