@@ -16,8 +16,8 @@ const db = new Pool(dbParams);
 db.connect();
 
 //Twilio
-const http = require('http');
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
+// const http = require('http');
+// const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 //requiring food to preload
 
@@ -70,6 +70,10 @@ app.get("/", (req, res) => {
 //   res.render("customerInterface")
 // })
 
+app.post("/logout", (req,res) => {
+  res.clearCookie("user_id");
+  res.redirect("/");
+});
 
 
 
@@ -82,7 +86,3 @@ app.listen(PORT, () => {
 
 //GET request for logged in user
 
-app.post("/logout", (req,res) => {
-  res.clearCookie("user_id");
-  res.redirect("/");
-});
