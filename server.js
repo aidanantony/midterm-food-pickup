@@ -80,9 +80,6 @@ app.post("/logout", (req,res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-// http.createServer(app).listen(8080, () => {
-//   console.log('Express server listening on port 1337');
-// });
 
 //GET request for logged in user
 
