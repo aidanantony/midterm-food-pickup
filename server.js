@@ -1,5 +1,7 @@
 // load .env data into process.env
-require("dotenv").config();
+const path = require("path");
+const PATH = path.resolve(__dirname, "./.env");
+require("dotenv").config({ path: PATH });
 console.log(process.env);
 
 // Web server config

@@ -1,4 +1,6 @@
-require("dotenv").config();
+const path = require("path");
+const PATH = path.resolve(__dirname, "./.env");
+require("dotenv").config({ path: PATH });
 console.log(process.env);
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
