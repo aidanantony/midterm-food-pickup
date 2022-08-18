@@ -14,7 +14,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "cookie-parser": "^1.4.6",
-    "dotenv": "^2.0.0",
+    "dotenv": "^16.0.1",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "fs": "*",
