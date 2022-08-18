@@ -1,7 +1,7 @@
 //load .env data into process.env
-const path = require("path");
-const PATH = path.resolve(__dirname, "../.env");
-require("dotenv").config({ path: PATH, debug : true});
+//const path = require("path");
+//const PATH = path.resolve(__dirname, "../.env");
+require("dotenv").config({ debug : true});
 console.log(process.env);
 
 // other dependencies
