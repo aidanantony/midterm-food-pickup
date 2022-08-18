@@ -1,5 +1,5 @@
 // load .env data into process.env
-require("dotenv").config({ path: '../.env' });
+require("dotenv").config();
 console.log(process.env);
 
 // other dependencies
